@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Карта</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <header><div class="logo">Погодный сайт</div></header>
+
+  <main>
+    <h1>Выберите точку на карте</h1>
+    <div id="map" style="height:450px;border-radius:12px"></div>
+    <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+      <input type="date" id="map-date">
+      <button id="get-map-weather">Узнать погоду</button>
+      <button id="back-choose">Назад</button>
+      <div id="error" class="error"></div>
+    </div>
+  </main>
+
+  <footer>© Дмитрий Глухих</footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="map.js"></script>
+  <script src="translate.js"></script>
+</body>
+</html>

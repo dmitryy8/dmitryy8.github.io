@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Форма</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><div class="logo">Погодный сайт</div></header>
+
+  <main>
+    <h1>Введите город</h1>
+    <form id="form-weather">
+      <label for="city">Город:</label>
+      <input type="text" id="city" placeholder="Петропавловск" required>
+      <label for="date">Дата:</label>
+      <input type="date" id="date" required>
+      <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
+        <button type="submit">Узнать погоду</button>
+        <button id="back-choose" type="button">Назад</button>
+      </div>
+    </form>
+    <div id="error" class="error"></div>
+  </main>
+
+  <footer>© Дмитрий Глухих</footer>
+
+  <script src="form.js"></script>
+  <script src="translate.js"></script>
+</body>
+</html>
+
