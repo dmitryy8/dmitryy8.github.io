@@ -1,17 +1,67 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Прогноз погоды</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* локальные стили для страницы */
+    body {
+      font-family: "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #4f8dff, #a3c9ff);
+      color: #fff;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+      width: 440px;
+      max-width: calc(100% - 40px);
+      margin: 12px 0;
+    }
+    h1 { margin: 0 0 10px; font-size: 1.6rem; }
+    #weatherResult { min-height: 150px; display:flex; align-items:center; justify-content:center; }
+    .loading { font-size:1.15rem; opacity:0.95; }
+    .muted { opacity:0.95; font-size:0.95rem; text-align:left; }
+    .risk-table td { padding:6px 8px; }
+    .advice { margin-top:10px; background: rgba(0,0,0,0.18); padding:10px; border-radius:8px; text-align:left; }
+    button { margin-top: 14px; background:#005ee0;border:none;color:#fff;padding:10px 16px;border-radius:10px;cursor:pointer }
+    button:hover { background:#0048b3 }
+    pre.debug { text-align:left; color:#fff; background:rgba(0,0,0,0.14); padding:8px; border-radius:6px; overflow:auto; max-height:140px; }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1> Прогноз погоды</h1>
-    <div id="weatherResult">Загрузка данных...</div>
-    <button onclick="window.location.href='index.html'">← Назад</button>
+  <div class="card">
+    <h1>Прогноз погоды</h1>
+    <div id="weatherResult">
+      <span class="loading">Загрузка...</span>
+    </div>
   </div>
 
+  <div class="card" id="riskCard" style="display:none">
+    <h2>Климатический риск</h2>
+    <div id="riskContent" class="muted">Загрузка риска...</div>
+  </div>
+
+  <div class="card" id="adviceCard" style="display:none">
+    <h2>Совет</h2>
+    <div id="adviceText" class="advice muted">Загрузка совета...</div>
+  </div>
+
+  <div style="margin-top:10px">
+    <button id="backButton">← На главную</button>
+  </div>
+
+  <!-- advices.js должен быть рядом -->
   <script src="advices.js"></script>
   <script src="weather.js"></script>
 </body>
