@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
   <title>Прогноз погоды</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><div class="logo">Погодный сайт</div></header>
-  <main>
-    <h1>Прогноз погоды</h1>
-    <div id="result" class="card"></div>
-    <div id="error" class="error"></div>
-    <div style="margin-top:12px">
-      <button id="back-home">На главную</button>
-      <button id="calc-risk">Климатический риск (локально, демо)</button>
-    </div>
-  </main>
-  <footer>© Дмитрий Глухих</footer>
+  <div class="container">
+    <h1> Прогноз погоды</h1>
+    <div id="weatherResult">Загрузка данных...</div>
+    <button onclick="window.location.href='index.html'">← Назад</button>
+  </div>
 
+  <script src="advices.js"></script>
   <script src="weather.js"></script>
-  <script src="translate.js"></script>
 </body>
 </html>
