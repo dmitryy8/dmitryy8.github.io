@@ -3,6 +3,7 @@
   --bg2:#a3c9ff;
   --card-bg: rgba(255,255,255,0.12);
   --accent:#0078ff;
+  --accent-2:#005ee0;
 }
 *{box-sizing:border-box}
 body{
@@ -23,6 +24,17 @@ header{
   box-shadow:0 4px 20px rgba(0,0,0,0.3);
 }
 .logo{font-weight:700}
+.lang-btn {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.12);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform .18s, background .18s, border-color .18s;
+}
+.lang-btn:hover { transform: translateY(-3px); background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.25); }
+
 main{
   max-width:1100px;
   width:100%;
@@ -32,7 +44,7 @@ main{
 h1{font-size:1.9rem;margin:8px 0 16px;text-shadow:0 2px 6px rgba(0,0,0,0.25)}
 .lead{opacity:0.95;margin-bottom:22px}
 .card, .choose-buttons, form{background:var(--card-bg);backdrop-filter: blur(6px);padding:18px;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,0.18)}
-.choose-buttons{display:flex;gap:12px;align-items:center;justify-content:center}
+.choose-buttons{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap}
 input,select,button{
   padding:10px 12px;border-radius:10px;border:none;font-size:1rem;
 }
@@ -44,3 +56,42 @@ footer{margin-top:auto;padding:10px;background:rgba(0,0,0,0.6);text-align:center
 .hourly .h{background:rgba(255,255,255,0.04);padding:8px;border-radius:8px}
 .muted{opacity:0.9;font-size:0.9rem}
 .advice{background:rgba(0,0,0,0.25);padding:10px;border-radius:8px;margin-top:8px}
+
+/* --- большие анимированные кнопки (choose page) --- */
+.big-btn {
+  --scale: 1;
+  background: linear-gradient(180deg,var(--accent),var(--accent-2));
+  padding: 24px 40px;
+  font-size: 1.25rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: transform 0.26s cubic-bezier(.2,.9,.2,1), box-shadow .26s;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  width: 320px;
+  text-align: center;
+}
+.big-btn:active { transform: translateY(2px) scale(.995); }
+.big-btn:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 18px 40px rgba(0,0,0,0.3); }
+
+/* responsive for smaller screens */
+@media (max-width:720px){
+  .big-btn { width: 92%; padding:18px; font-size:1.1rem; }
+  .choose-buttons { flex-direction:column; gap:12px; }
+  header { padding:10px; }
+}
+
+/* weather page hourly table */
+.hourly-table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  color:#fff;
+}
+.hourly-table th, .hourly-table td {
+  padding:6px 8px;
+  text-align:left;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  font-size:0.95rem;
+}

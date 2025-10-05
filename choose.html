@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Выбор способа</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title">Выбор способа</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <div class="logo">Погодный сайт</div>
-    <div id="lang-switch-container"></div>
+    <div class="logo" data-i18n="logo">Погодный сайт</div>
+    <button class="lang-btn" id="lang-toggle">Рус</button>
   </header>
 
   <main>
-    <h1>Как хотите узнать погоду?</h1>
+    <h1 data-i18n="how">Как хотите узнать погоду?</h1>
     <div class="choose-buttons">
-      <a href="form.html"><button>Через форму</button></a>
-      <a href="map.html"><button>Через карту</button></a>
+      <button class="big-btn" id="btn-form" data-i18n="byForm">Через форму</button>
+      <button class="big-btn" id="btn-map" data-i18n="byMap">Через карту</button>
     </div>
   </main>
 
   <footer>© Дмитрий Глухих</footer>
 
   <script src="translate.js"></script>
+  <script>
+    // Поведение кнопок — в одной вкладке, но переход через location.href
+    document.getElementById('btn-form').addEventListener('click', () => {
+      window.location.href = 'form.html';
+    });
+    document.getElementById('btn-map').addEventListener('click', () => {
+      window.location.href = 'map.html';
+    });
+  </script>
 </body>
 </html>
